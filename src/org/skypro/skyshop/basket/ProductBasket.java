@@ -15,6 +15,7 @@ public class ProductBasket {
             basket[t] = product;
             totalCost = totalCost + product.getPrice();
         }
+        t++;
     }
 
     public int TotalCost() {
@@ -22,21 +23,42 @@ public class ProductBasket {
     }
 
     public void toSting() {
-        for (int i = 0; i < basket.length; i++) {
-            if (basket[i] != null) {
-                System.out.println(basket[i].getTitle() + ": " + basket[i].getPrice());
+        if (basket[0] != null) {
+            for (int i = 0; i < basket.length; i++) {
+                if (basket[i] != null) {
+                    System.out.println(basket[i].getTitle() + ": " + basket[i].getPrice());
+                }
             }
+            System.out.println("Итого:" + TotalCost());
+        }else {
+            System.out.println("Корзина пуста. Итого: " + TotalCost());
         }
-        System.out.println("Итого:" + TotalCost());
     }
 
     public void CleaningBasket() {
         for (int i = 0; i < basket.length; i++) {
             basket[i] = null;
         }
+        totalCost = 0;
+    }
+
+    public void ProductAvailability(String name) {
+        int availability = 0;
+
+        if (basket[0] != null) {
+            for (int i = 0;i < basket.length; i++) {
+                if (basket[i].getTitle().equals(name)) {
+                    availability += 1;
+                    System.out.println("Товар есть");
                 }
-        } else {
+            }
         }
+        if (availability == 0) {
+            System.out.println("Товара нет");
+
         }
     }
 }
+
+
+

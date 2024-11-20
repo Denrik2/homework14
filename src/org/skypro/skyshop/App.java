@@ -20,6 +20,12 @@ public class App {
         pac1.ProductBasket(iceCream);
         pac1.ProductBasket(pepper);
         pac1.toSting();
-        pac1.CheckProduct("bag");
+        pac1.ProductAvailability("bag");
+        pac1.ProductAvailability("kiwi");
+        pac1.CleaningBasket();
+        pac1.toSting();
+        pac1.ProductAvailability("bag");
+
+
     }
 }
