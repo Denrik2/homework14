@@ -13,18 +13,18 @@ public class App {
         Product pepper = new Product("pepper", 300);
 
         ProductBasket pac1 = new ProductBasket();
-        pac1.ProductBasket(apple);
-        pac1.ProductBasket(bag);
-        pac1.ProductBasket(banana);
-        pac1.ProductBasket(sausages);
-        pac1.ProductBasket(iceCream);
-        pac1.ProductBasket(pepper);
-        pac1.toSting();
-        pac1.ProductAvailability("bag");
-        pac1.ProductAvailability("kiwi");
-        pac1.CleaningBasket();
-        pac1.toSting();
-        pac1.ProductAvailability("bag");
+        pac1.addProduct(apple);
+        pac1.addProduct(bag);
+        pac1.addProduct(banana);
+        pac1.addProduct(sausages);
+        pac1.addProduct(iceCream);
+        pac1.addProduct(pepper);
+        System.out.println(pac1.toString());
+        pac1.checkProductAvailability("bag");
+        pac1.checkProductAvailability("kiwi");
+        pac1.clearBasket();
+        System.out.println(pac1.toString());
+        pac1.checkProductAvailability("bag");
 
 
     }

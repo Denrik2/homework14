@@ -7,47 +7,48 @@ public class ProductBasket {
     private int totalCost;
     int t = 0;
 
-    public void ProductBasket(Product product) {
+    public void addProduct(Product product) {
         if (basket.length == this.t) {
             System.out.println("Невозможно добавить продукт");
 
-        } else if (basket.length > t) {
+        } else if (basket.length > t && t <= 5) {
             basket[t] = product;
             totalCost = totalCost + product.getPrice();
+            t++;
         }
-        t++;
     }
 
-    public int TotalCost() {
+    public int getTotalCost() {
         return totalCost;
     }
 
-    public void toSting() {
+    public String toString() {
+        String a = "";
         if (basket[0] != null) {
             for (int i = 0; i < basket.length; i++) {
                 if (basket[i] != null) {
-                    System.out.println(basket[i].getTitle() + ": " + basket[i].getPrice());
+                    a += basket[i].getTitle() + ": " + basket[i].getPrice();
                 }
             }
-            System.out.println("Итого:" + TotalCost());
+            return a + " Итого:" + getTotalCost();
         }else {
-            System.out.println("Корзина пуста. Итого: " + TotalCost());
+            return "Корзина пуста. Итого: " + getTotalCost();
         }
     }
 
-    public void CleaningBasket() {
+    public void clearBasket() {
         for (int i = 0; i < basket.length; i++) {
             basket[i] = null;
         }
         totalCost = 0;
     }
 
-    public void ProductAvailability(String name) {
+    public void checkProductAvailability(String name) {
         int availability = 0;
 
         if (basket[0] != null) {
             for (int i = 0;i < basket.length; i++) {
-                if (basket[i].getTitle().equals(name)) {
+                if (basket[i].getTitle().equals(name) && basket[i].getTitle() != null) {
                     availability += 1;
                     System.out.println("Товар есть");
                 }
@@ -55,7 +56,6 @@ public class ProductBasket {
         }
         if (availability == 0) {
             System.out.println("Товара нет");
-
         }
     }
 }
