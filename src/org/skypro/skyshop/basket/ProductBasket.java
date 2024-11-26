@@ -30,10 +30,7 @@ public class ProductBasket {
         String a = "";
         if (basket[0] != null) {
             for (int i = 0; i < basket.length; i++) {
-                if (basket[i] != null && basket[i].getClass() == SimpleProduct.class) {
-                    a += basket[i].getTitle() + ": " + basket[i].getPrice() + ";\n ";
-                } else if (basket[i] != null && basket[i].isSpecial()) {
-                    counter ++;
+                if (basket[i] != null && !basket[i].isSpecial()) {
                     a += basket[i].getTitle() + ": " + basket[i].getPrice() + ";\n ";
                 } else if (basket[i] != null && basket[i].isSpecial()) {
                     counter ++;
