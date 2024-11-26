@@ -32,15 +32,11 @@ public class ProductBasket {
             for (int i = 0; i < basket.length; i++) {
                 if (basket[i] != null && basket[i].getClass() == SimpleProduct.class) {
                     a += basket[i].getTitle() + ": " + basket[i].getPrice() + ";\n ";
-                } else if (basket[i] != null && basket[i].getClass() == DiscountedProduct.class) {
-                    if (basket[i].isSpecial()) {
-                        counter ++;
-                    }
-                    a += basket[i].getTitle() + ": " + basket[i].getPrice() + " С учетом скидки" + ";\n ";
-                } else if (basket[i] != null && basket[i].getClass() == FixPriceProduct.class) {
-                    if (basket[i].isSpecial()) {
-                        counter ++;
-                    }
+                } else if (basket[i] != null && basket[i].isSpecial()) {
+                    counter ++;
+                    a += basket[i].getTitle() + ": " + basket[i].getPrice() + ";\n ";
+                } else if (basket[i] != null && basket[i].isSpecial()) {
+                    counter ++;
                     a += basket[i].getTitle() + ": " + basket[i].getPrice() + ";\n ";
                 }
             }
